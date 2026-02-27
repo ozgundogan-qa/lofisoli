@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 44 40% 96%; /* #F7F5F0 Kırık Beyaz / Açık Kum */
+    --foreground: 147 17% 20%; /* #2C3E35 Koyu Haki / Orman Yeşili */
+    --card: 44 40% 96%;
+    --card-foreground: 147 17% 20%;
+    --popover: 44 40% 96%;
+    --popover-foreground: 147 17% 20%;
+    --primary: 147 17% 20%; /* #2C3E35 Koyu Haki */
+    --primary-foreground: 44 40% 96%;
+    --secondary: 96 14% 90%; /* #E5E8E2 Adaçayı */
+    --secondary-foreground: 147 17% 20%;
+    --muted: 96 14% 90%;
+    --muted-foreground: 147 17% 20%; /* Opacity eklenecek yazılarda */
+    --accent: 96 14% 90%;
+    --accent-foreground: 147 17% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 147 17% 20%; /* İnce ayraçlar için */
+    --input: 147 17% 20%;
+    --ring: 147 17% 20%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 leading-relaxed;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+/* Custom Scrollbar for a more premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background)); 
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary)); 
+}
