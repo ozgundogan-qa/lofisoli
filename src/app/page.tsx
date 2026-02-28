@@ -101,7 +101,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAazbR57dojsRu8JRLsyv9-ouuqQ8IX8IIKJvPGWZ0t1z794ZoPyylLZFdFEfcKt3LyyiP2fBa9TRLYzI8P4YzMEWypiOFpXwRyqRHR84FHsJJXMxKAaX7RkfcYCz9HGsNFP54SM8xy-_gtAe--WWTuWBliQLu0_a8FWX1k2i53Rbsenec9vfpv1RhElhV6pjdOrp0GqS4NraTznbN6aNt25mR1EL9VWdrgY6C-Z2NkTmBTp9camAR0Btj9Px_p17oX4q6YXIve984"
+                src="https://plus.unsplash.com/premium_photo-1762539798281-e694eeab5d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Paracord Material"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />

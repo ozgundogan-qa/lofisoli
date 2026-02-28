@@ -4,7 +4,19 @@ import { useState } from "react";
 import { Check, Info, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Bracelet3D from "@/components/Bracelet3D";
+import dynamic from "next/dynamic";
+import { Loader2 } from "lucide-react";
+
+// Dynamically import the 3D bracelet component to avoid loading heavy 3D libraries on initial page load
+const DynamicBracelet3D = dynamic(() => import("@/components/Bracelet3D"), {
+    ssr: false,
+    loading: () => (
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0a150e]">
+            <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+            <p className="text-muted-foreground text-sm">3D Model Yükleniyor...</p>
+        </div>
+    )
+});
 
 const colors = [
     { id: "forest", name: "Orman Yeşili", hex: "#143A23" },
@@ -54,7 +66,7 @@ export default function BuilderPage() {
 
                         {/* 3D Bracelet Component */}
                         <div className="absolute inset-0 z-10">
-                            <Bracelet3D
+                            <DynamicBracelet3D
                                 baseColor={baseColor.hex}
                                 accentColor={accentColor.hex}
                                 claspType={slctClasp.id}

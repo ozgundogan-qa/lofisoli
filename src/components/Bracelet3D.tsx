@@ -2,7 +2,7 @@
 /// <reference types="three" />
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
@@ -17,38 +17,32 @@ function BraceletModel({ baseColor, accentColor, claspType }: BraceletProps) {
     const groupRef = useRef<THREE.Group>(null);
     const [bumpTexture, setBumpTexture] = useState<THREE.CanvasTexture | null>(null);
 
-    // Generate a procedural woven pattern texture for the bump map.
-    // This gives the macro paracord look!
+    // Paracord macro-texture (woven threads)
     useEffect(() => {
         const canvas = document.createElement('canvas');
-        canvas.width = 64;
-        canvas.height = 64;
+        canvas.width = 128;
+        canvas.height = 128;
         const ctx = canvas.getContext('2d');
         if (ctx) {
-            // Background
-            ctx.fillStyle = '#808080';
-            ctx.fillRect(0, 0, 64, 64);
-
-            // Woven threads
-            ctx.strokeStyle = '#ffffff';
-            ctx.lineWidth = 4;
-            for (let i = -64; i < 128; i += 16) {
+            ctx.fillStyle = '#666666';
+            ctx.fillRect(0, 0, 128, 128);
+            ctx.strokeStyle = '#aaaaaa';
+            ctx.lineWidth = 3;
+            for (let i = -128; i < 256; i += 12) {
                 ctx.beginPath();
                 ctx.moveTo(i, 0);
-                ctx.lineTo(i + 64, 64);
+                ctx.lineTo(i + 128, 128);
                 ctx.stroke();
-
                 ctx.beginPath();
-                ctx.moveTo(i + 64, 0);
-                ctx.lineTo(i, 64);
+                ctx.moveTo(i + 128, 0);
+                ctx.lineTo(i, 128);
                 ctx.stroke();
             }
         }
         const texture = new THREE.CanvasTexture(canvas);
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
-        // Stretch the texture aggressively along the cord to make lines look like tight threads
-        texture.repeat.set(150, 4);
+        texture.repeat.set(150, 2);
         texture.needsUpdate = true;
         setBumpTexture(texture);
     }, []);
@@ -61,153 +55,150 @@ function BraceletModel({ baseColor, accentColor, claspType }: BraceletProps) {
         }
     });
 
-    // Calculate clasp color based on type
-    const getClaspMaterial = () => {
+    const claspMat = useMemo(() => {
         switch (claspType) {
             case "black":
-                return { color: "#1a1a1a", metalness: 0.8, roughness: 0.6 };
+                return { color: "#111111", metalness: 0.6, roughness: 0.7 }; // Matte tactical plastic/cerakote
             case "brass":
                 return { color: "#c1a353", metalness: 0.9, roughness: 0.4 };
             case "steel":
             default:
-                return { color: "#cccccc", metalness: 0.9, roughness: 0.2 };
+                return { color: "#999999", metalness: 0.9, roughness: 0.2 };
         }
-    };
+    }, [claspType]);
 
-    const claspMat = getClaspMaterial();
-
-    // Procedural braiding parameters simulating exactly the "Cobra Weave / Solomon Bar" knot
-    const radius = 2.1;
-    const twists = 36;
-    const W = 0.55;
-    const H = 0.26;
+    // Geometry parameters for the Cobra Weave
+    const R = 2.6;
+    const numKnots = 38;
+    const gap = 0.35; // Gap for the buckle
+    const startTheta = Math.PI + gap;
+    const endTheta = 3 * Math.PI - gap;
+    const numPoints = 250; // Reduced from 500 for massive performance boost
     const strandRadius = 0.16;
-    const numKnotsPoints = 400; // Resolution of the curve
 
-    // Pre-calculate the geometry curves
-    const strands = [0, 1].map((i) => {
-        const isAccent = i === 1;
-        const strandColor = isAccent ? accentColor : baseColor;
-        const phase = i * Math.PI;
+    // A smoothed square wave function to create the flat loops characteristic of Cobra Weaves
+    const sq = (x: number) => Math.atan(Math.sin(x) * 6) / 1.4;
 
-        const points = [];
-        for (let j = 0; j <= numKnotsPoints; j++) {
-            const t = j / numKnotsPoints;
-            const angle = t * Math.PI * 2;
+    const strands = useMemo(() => {
+        const generateCobraStrand = (isBase: boolean) => {
+            const points = [];
+            const color = isBase ? baseColor : accentColor;
+            const sign = isBase ? 1 : -1;
 
-            // Base circle equation
-            const x0 = Math.sin(angle) * radius;
-            const y0 = Math.cos(angle) * radius;
+            for (let i = 0; i <= numPoints; i++) {
+                const t = i / numPoints;
+                const theta = startTheta + t * (endTheta - startTheta);
+                const phi = t * numKnots * Math.PI * 2;
 
-            const localAngle = angle * twists + phase;
-            const cosVal = Math.cos(localAngle);
+                const xBase = Math.sin(theta) * R;
+                const yBase = Math.cos(theta) * R;
+                const nX = Math.sin(theta);
+                const nY = Math.cos(theta);
 
-            // Smoothed square wave makes the strand cross straight, and curl sharply at edges!
-            const dx_local = W * Math.sign(cosVal) * Math.pow(Math.abs(cosVal), 0.65);
-            // Height moves smoothly to weave over and under the core!
-            const dz_local = H * Math.sin(localAngle);
+                let localZ = sq(phi) * 0.48 * sign;
+                let localN = Math.cos(phi) * 0.32 * sign;
 
-            const xDir = Math.sin(angle);
-            const yDir = Math.cos(angle);
+                // Taper smoothly into the buckle
+                let taper = 1;
+                if (t < 0.05) taper = t / 0.05;
+                if (t > 0.95) taper = (1 - t) / 0.05;
+                taper = taper * taper * (3 - 2 * taper); // smoothstep
 
-            // Create an exact gap for the clasp to sit in
-            let taperVal = 1;
-            const dAngle = Math.min(t, 1 - t) * Math.PI * 2;
-            if (dAngle < 0.25) {
-                taperVal = Math.max(0, (dAngle - 0.05) * 6);
+                localZ *= taper;
+                localN *= taper;
+
+                points.push(new THREE.Vector3(
+                    xBase + nX * localN,
+                    yBase + nY * localN,
+                    localZ
+                ));
             }
+            return { curve: new THREE.CatmullRomCurve3(points, false), color };
+        };
 
-            points.push(new THREE.Vector3(
-                x0 + dx_local * xDir * taperVal,
-                y0 + dx_local * yDir * taperVal,
-                dz_local * taperVal
-            ));
-        }
+        const generateCore = (offsetZ: number) => {
+            const points = [];
+            for (let i = 0; i <= 60; i++) {
+                const t = i / 60;
+                const theta = startTheta + t * (endTheta - startTheta);
+                const xBase = Math.sin(theta) * R;
+                const yBase = Math.cos(theta) * R;
+                let taper = 1;
+                if (t < 0.05) taper = t / 0.05;
+                if (t > 0.95) taper = (1 - t) / 0.05;
+                points.push(new THREE.Vector3(xBase, yBase, offsetZ * taper));
+            }
+            return { curve: new THREE.CatmullRomCurve3(points, false), color: baseColor };
+        };
 
         return {
-            curve: new THREE.CatmullRomCurve3(points, false),
-            color: strandColor
+            weaves: [generateCobraStrand(true), generateCobraStrand(false)],
+            cores: [generateCore(0.18), generateCore(-0.18)]
         };
-    });
-
-    const cores = [0, 1].map((i) => {
-        const offset = i === 0 ? 0.16 : -0.16;
-        const points = [];
-        for (let j = 0; j <= 64; j++) {
-            const t = j / 64;
-            const angle = t * Math.PI * 2;
-            const x0 = Math.sin(angle) * radius;
-            const y0 = Math.cos(angle) * radius;
-            const xDir = Math.sin(angle);
-            const yDir = Math.cos(angle);
-
-            let taperVal = 1;
-            const dAngle = Math.min(t, 1 - t) * Math.PI * 2;
-            if (dAngle < 0.22) {
-                taperVal = Math.max(0, (dAngle - 0.05) * 6);
-            }
-
-            points.push(new THREE.Vector3(
-                x0 + offset * xDir * taperVal,
-                y0 + offset * yDir * taperVal,
-                0
-            ));
-        }
-        return {
-            curve: new THREE.CatmullRomCurve3(points, false),
-            color: baseColor
-        };
-    });
+    }, [baseColor, accentColor]);
 
     return (
-        <group ref={groupRef}>
-            {/* Render Braided Strands */}
-            {strands.map((strand, i) => (
-                <mesh key={`strand-${i}`} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
-                    <tubeGeometry args={[strand.curve, 400, strandRadius, 16, false]} />
+        <group ref={groupRef} rotation={[Math.PI / 8, 0, 0]}>
+            {/* The Woven Strands */}
+            {strands.weaves.map((strand, i) => (
+                <mesh key={`weave-${i}`} castShadow receiveShadow>
+                    <tubeGeometry args={[strand.curve, numPoints, strandRadius, 12, false]} />
                     <meshStandardMaterial
                         color={strand.color}
-                        roughness={0.8}
-                        metalness={0.1}
+                        roughness={0.9}
+                        metalness={0.0}
                         bumpMap={bumpTexture || undefined}
-                        bumpScale={0.03}
+                        bumpScale={0.04}
                     />
                 </mesh>
             ))}
 
-            {/* Render Core Strands */}
-            {cores.map((core, i) => (
-                <mesh key={`core-${i}`} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
-                    <tubeGeometry args={[core.curve, 64, 0.14, 12, false]} />
+            {/* The Inner Cores */}
+            {strands.cores.map((core, i) => (
+                <mesh key={`core-${i}`} castShadow receiveShadow>
+                    <tubeGeometry args={[core.curve, 60, strandRadius * 0.9, 8, false]} />
                     <meshStandardMaterial
                         color={core.color}
                         roughness={0.9}
-                        metalness={0.1}
+                        metalness={0.0}
                         bumpMap={bumpTexture || undefined}
-                        bumpScale={0.02}
+                        bumpScale={0.04}
                     />
                 </mesh>
             ))}
 
-            {/* Clasp Main Body */}
-            <mesh position={[0, 0, 2.1]} rotation={[Math.PI / 2, 0, 0]}>
-                <cylinderGeometry args={[0.55, 0.55, 1.4, 32]} />
-                <meshStandardMaterial
-                    color={claspMat.color}
-                    metalness={claspMat.metalness}
-                    roughness={claspMat.roughness}
-                />
-            </mesh>
+            {/* Side-Release Buckle / Clasp */}
+            {/* Clasp is at theta = Math.PI, meaning x=0, y=-R. The tangent is along +X, normal is -Y */}
+            <group position={[0, -R, 0]} rotation={[0, 0, 0]}>
 
-            {/* Clasp Button Detail */}
-            <mesh position={[0.45, 0, 2.1]} rotation={[0, 0, Math.PI / 2]}>
-                <cylinderGeometry args={[0.16, 0.16, 0.3, 16]} />
-                <meshStandardMaterial
-                    color={claspMat.color}
-                    metalness={claspMat.metalness}
-                    roughness={claspMat.roughness}
-                />
-            </mesh>
+                {/* Female Receptor Body */}
+                <mesh position={[0.4, 0, 0]} castShadow receiveShadow>
+                    <boxGeometry args={[0.9, 0.35, 1.15]} />
+                    <meshStandardMaterial color={claspMat.color} metalness={claspMat.metalness} roughness={claspMat.roughness} />
+                </mesh>
+
+                {/* Male Insert Body */}
+                <mesh position={[-0.4, 0, 0]} castShadow receiveShadow>
+                    <boxGeometry args={[0.7, 0.3, 1.05]} />
+                    <meshStandardMaterial color={claspMat.color} metalness={claspMat.metalness} roughness={claspMat.roughness} />
+                </mesh>
+
+                {/* Male Prongs (Side push buttons) */}
+                <mesh position={[-0.05, 0, 0.45]} castShadow receiveShadow>
+                    <boxGeometry args={[0.4, 0.25, 0.2]} />
+                    <meshStandardMaterial color={claspMat.color} metalness={claspMat.metalness} roughness={claspMat.roughness} />
+                </mesh>
+                <mesh position={[-0.05, 0, -0.45]} castShadow receiveShadow>
+                    <boxGeometry args={[0.4, 0.25, 0.2]} />
+                    <meshStandardMaterial color={claspMat.color} metalness={claspMat.metalness} roughness={claspMat.roughness} />
+                </mesh>
+
+                {/* Center locking prong */}
+                <mesh position={[-0.05, 0, 0]} castShadow receiveShadow>
+                    <boxGeometry args={[0.5, 0.2, 0.3]} />
+                    <meshStandardMaterial color={claspMat.color} metalness={claspMat.metalness} roughness={claspMat.roughness} />
+                </mesh>
+            </group>
         </group>
     );
 }
@@ -215,9 +206,9 @@ function BraceletModel({ baseColor, accentColor, claspType }: BraceletProps) {
 export default function Bracelet3D({ baseColor, accentColor, claspType }: BraceletProps) {
     return (
         <div className="w-full h-full relative cursor-grab active:cursor-grabbing">
-            <Canvas camera={{ position: [0, 5, 8], fov: 45 }}>
-                <ambientLight intensity={0.6} />
-                <spotLight position={[10, 10, 10]} angle={0.2} penumbra={1} intensity={1.5} castShadow />
+            <Canvas camera={{ position: [0, 4, 8], fov: 45 }} shadows>
+                <ambientLight intensity={0.7} />
+                <spotLight position={[5, 10, 5]} angle={0.3} penumbra={1} intensity={1.5} castShadow />
                 <Environment preset="city" />
 
                 <BraceletModel
@@ -227,19 +218,20 @@ export default function Bracelet3D({ baseColor, accentColor, claspType }: Bracel
                 />
 
                 <ContactShadows
-                    position={[0, -1.8, 0]}
-                    opacity={0.6}
+                    position={[0, -3.0, 0]}
+                    opacity={0.4}
                     scale={15}
-                    blur={2.5}
-                    far={5}
-                    color="#13ec5b"
+                    blur={3}
+                    far={4}
+                    color="#000000"
                 />
                 <OrbitControls
                     enableZoom={true}
-                    minDistance={3}
-                    maxDistance={12}
+                    minDistance={4}
+                    maxDistance={15}
                     enablePan={false}
-                    autoRotate={false}
+                    autoRotate={true}
+                    autoRotateSpeed={0.5}
                 />
             </Canvas>
 

@@ -13,7 +13,6 @@ const products = [
     {
         id: 1,
         name: "The Survivor 550",
-        price: 24.00,
         rating: 4.9,
         color: "Forest Green / Steel",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhyiSJ6JMzlyOQuNUu27MaLsInJL_kspMzyjSAlM7G4k3-qVL09r5-BRPWq-wiwdEHuMtfXshyNbPNtWssy7cC-NA22UXnW-eyOVY0zQB0N7_K2M3g-genEM4nBVw91FoCRpJwqZoxo5CpP1_Rn4zNnWXkAbchYD8LLDSp6bg0z3tuEbDUuAogi4UzS6zmjqIjccJ4HStH_Zi2JglSHyHlqI-llGtE2s7SrPgRfHdym7LMcutpdpFHZ4vzUeHeFjAfDRbQTNsbHLA",
@@ -22,7 +21,6 @@ const products = [
     {
         id: 2,
         name: "Tactical Blackout",
-        price: 28.00,
         rating: 4.8,
         color: "Midnight Black / Cobra",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCK7PN8ZB5h2OJ3fJu-0KlZlQklhLub4gq7bs1ahyXQkpXfZs4ayHBVfurNSnB6zRy0oci4o8VpLxDs99Sre2_xkBAvZNuA_NrevzcDCdCc1vyBEth8Kq_b5k10lePiYR0cuLITO9MqWzc9F_EH0cC_BTVI42EsWo3w1Q_IMmUFH_-5COrifrWzjt-a9QenjeryIut42VB69CRYzpuZ54npDUzReKttl5btXY6dWwwzGbKRh6HlEGNmiL6RDjQ20QIcKDVD4mpGVl0",
@@ -30,7 +28,6 @@ const products = [
     {
         id: 3,
         name: "Alpine Micro-Cord",
-        price: 18.50,
         rating: 4.5,
         color: "Blaze Orange / Micro",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOoQTYAzt1yknyei3j1YWLAKcQ1fJyRIJ4VdZtCJ8d6KRZ08Ecskx5z1tYwXEXEoBsQ9FT00BzKDUU1GiTMfYH4zHpHfxR4F8TvcrQPbi87Wg0fWMeAqPD1-8_VZnjcGxcLHfiZOVMNbHKk4Nj8Ecw0NmC3DKf-KgBqltmyRJCCruT_L06ayLhRkcnm9W0nZv95F_Q_5d3BC0KARfO_I3-yC6uu8M4Y2eBvGE-18KLmUJ11yplmaFghoYUbwlDBHuiO83qW5aqgyI",
@@ -40,7 +37,6 @@ const products = [
     {
         id: 4,
         name: "Woodland Camo",
-        price: 25.00,
         rating: 5.0,
         color: "Camo / Cobra Weave",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB75yikhlFGJQ52Q08UEgrF9CyDMnoHUXRcQy-MX-0StDWBmsBCvRbI3PJD_32bFnZ_J7lnJrvWWAhJebySXoZqA7oIEyNvdBIytaE1FtVqj6xSRMb_-LIciIekl8kgd1j5BiT2Y7IrzHdSqsTZDjTJJw092LYhwbccUlAkP2Z68jGTCLiWuLt312dIjXAb0MQNBewUEzXqleYUF_OJkDF5IqZSo9EakvXFZVGFKe3PaWnCxjvhq4x_updFdFWVHjHwNbmFWf4lYvA",
@@ -48,7 +44,6 @@ const products = [
     {
         id: 5,
         name: "River Stone",
-        price: 22.00,
         rating: 4.7,
         color: "Blue & Grey / Fishtail",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfPnl7V_6J_3PVPqdXNhS2BzNUTL9nT7wvunfeGFzUoCryzJkHCqSyojQQf7RfmnNOG3bhxHq8YIs9pnZM2GPDxhl9jymuYXUZC8Mw9XfXZq9Sq9ETh2Khlhr2XQx8olmDYU8VSwunBkJReDGZ-9_QdpnQPFo6ItqY5Vqg41l07nqDqnCUJ4r1IRLVr5RugU_RNGxJuwZVQuk2oGVy0NmrJIRxnd4hoyNN2b1hV9KMnsdU2BatOFKfeUTWjxo0jDfF78nOS3GebCM",
@@ -56,7 +51,6 @@ const products = [
     {
         id: 6,
         name: "Emergency Flare",
-        price: 30.00,
         rating: 4.6,
         color: "Red / King Cobra",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzwurCjiNBD6c4X8iQr9TukPb9acG359rVimGM5dv6Z-JUreKSbgQGyQI3usRub_g-kkSG5rA4CmYHnKViV7vUohzQ2YztR7bqYqLP4rSaTCldDWqFcwxqs2Ns0oEjqQnqMuU-NecvcZRYWC8cS5LmMkHQHHa7hk6pZj0eNG3BTveGFhASYgS0KZvh4-G2CZRlr0oS94apnSmPLZrC754F5lRxaGBDIoDN-Y8ujNxZaZEMeztCfAXvumAe-37hA-g74preHQ6jT9c",
@@ -72,9 +66,7 @@ export default function StorePage() {
                     <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
                         <Link href="/" className="hover:text-primary transition-colors">Ana Sayfa</Link>
                         <span>/</span>
-                        <Link href="/magaza" className="hover:text-primary transition-colors">Mağaza</Link>
-                        <span>/</span>
-                        <span className="text-white font-medium">Tüm Bileklikler</span>
+                        <Link href="/urunler" className="text-white font-medium">Ürünler</Link>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                         <div>
@@ -136,8 +128,6 @@ export default function StorePage() {
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="featured">Öne Çıkanlar</SelectItem>
-                                    <SelectItem value="price-asc">Fiyat: Düşükten Yükseğe</SelectItem>
-                                    <SelectItem value="price-desc">Fiyat: Yüksekten Düşüğe</SelectItem>
                                     <SelectItem value="newest">En Yeniler</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -168,9 +158,6 @@ export default function StorePage() {
                                         src={product.image}
                                     />
                                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                        <button className="h-10 w-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Sepete Ekle">
-                                            <ShoppingCart className="h-5 w-5" />
-                                        </button>
                                         <button className="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="İncele">
                                             <Eye className="h-5 w-5" />
                                         </button>
@@ -190,9 +177,6 @@ export default function StorePage() {
                                         </div>
                                     </div>
                                     <p className="text-muted-foreground text-sm">{product.color}</p>
-                                    <div className="mt-2 flex items-center justify-between">
-                                        <span className="text-primary font-bold text-lg">${product.price.toFixed(2)}</span>
-                                    </div>
                                 </div>
                             </motion.div>
                         ))}

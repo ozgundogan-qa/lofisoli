@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mountain, Search, User, ShoppingCart, Menu } from "lucide-react";
+import { Mountain, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
@@ -81,22 +81,13 @@ export function Header() {
                     >
                         <Search className="h-5 w-5" />
                     </Button>
-                    <Button
-                        variant="ghost"
-                        className="hidden md:flex text-white hover:text-primary hover:bg-card px-4"
-                    >
-                        <User className="mr-2 h-5 w-5" />
-                        <span className="font-bold text-sm">Profil</span>
-                    </Button>
-                    <Button
-                        className="relative flex px-4 text-primary-foreground font-bold shadow-[0_0_15px_rgba(19,236,91,0.3)] hover:shadow-[0_0_25px_rgba(19,236,91,0.5)] transition-all hover:bg-primary/90"
-                    >
-                        <ShoppingCart className="md:mr-2 h-5 w-5" />
-                        <span className="hidden md:inline">Sepet</span>
-                        <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black md:hidden">
-                            2
-                        </span>
-                    </Button>
+                    <Link href="/siparis" className="hidden md:flex">
+                        <Button
+                            className="h-10 px-5 text-sm font-bold shadow-[0_0_15px_rgba(19,236,91,0.3)] hover:shadow-[0_0_25px_rgba(19,236,91,0.5)] transition-all hover:scale-105 rounded-full"
+                        >
+                            Sipariş Ver
+                        </Button>
+                    </Link>
                     <Button
                         variant="ghost"
                         size="icon"
