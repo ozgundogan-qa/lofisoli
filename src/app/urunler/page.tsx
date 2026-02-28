@@ -15,7 +15,7 @@ const products = [
         name: "The Survivor 550",
         rating: 4.9,
         color: "Forest Green / Steel",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhyiSJ6JMzlyOQuNUu27MaLsInJL_kspMzyjSAlM7G4k3-qVL09r5-BRPWq-wiwdEHuMtfXshyNbPNtWssy7cC-NA22UXnW-eyOVY0zQB0N7_K2M3g-genEM4nBVw91FoCRpJwqZoxo5CpP1_Rn4zNnWXkAbchYD8LLDSp6bg0z3tuEbDUuAogi4UzS6zmjqIjccJ4HStH_Zi2JglSHyHlqI-llGtE2s7SrPgRfHdym7LMcutpdpFHZ4vzUeHeFjAfDRbQTNsbHLA",
+        image: "/images/p_survivor.png",
         badge: "ÇOK SATAN",
     },
     {
@@ -23,14 +23,14 @@ const products = [
         name: "Tactical Blackout",
         rating: 4.8,
         color: "Midnight Black / Cobra",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCK7PN8ZB5h2OJ3fJu-0KlZlQklhLub4gq7bs1ahyXQkpXfZs4ayHBVfurNSnB6zRy0oci4o8VpLxDs99Sre2_xkBAvZNuA_NrevzcDCdCc1vyBEth8Kq_b5k10lePiYR0cuLITO9MqWzc9F_EH0cC_BTVI42EsWo3w1Q_IMmUFH_-5COrifrWzjt-a9QenjeryIut42VB69CRYzpuZ54npDUzReKttl5btXY6dWwwzGbKRh6HlEGNmiL6RDjQ20QIcKDVD4mpGVl0",
+        image: "/images/p_tactical.png",
     },
     {
         id: 3,
         name: "Alpine Micro-Cord",
         rating: 4.5,
         color: "Blaze Orange / Micro",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOoQTYAzt1yknyei3j1YWLAKcQ1fJyRIJ4VdZtCJ8d6KRZ08Ecskx5z1tYwXEXEoBsQ9FT00BzKDUU1GiTMfYH4zHpHfxR4F8TvcrQPbi87Wg0fWMeAqPD1-8_VZnjcGxcLHfiZOVMNbHKk4Nj8Ecw0NmC3DKf-KgBqltmyRJCCruT_L06ayLhRkcnm9W0nZv95F_Q_5d3BC0KARfO_I3-yC6uu8M4Y2eBvGE-18KLmUJ11yplmaFghoYUbwlDBHuiO83qW5aqgyI",
+        image: "/images/p_alpine.png",
         badge: "YENİ",
         badgeStyle: "bg-white text-black"
     },
@@ -39,21 +39,21 @@ const products = [
         name: "Woodland Camo",
         rating: 5.0,
         color: "Camo / Cobra Weave",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB75yikhlFGJQ52Q08UEgrF9CyDMnoHUXRcQy-MX-0StDWBmsBCvRbI3PJD_32bFnZ_J7lnJrvWWAhJebySXoZqA7oIEyNvdBIytaE1FtVqj6xSRMb_-LIciIekl8kgd1j5BiT2Y7IrzHdSqsTZDjTJJw092LYhwbccUlAkP2Z68jGTCLiWuLt312dIjXAb0MQNBewUEzXqleYUF_OJkDF5IqZSo9EakvXFZVGFKe3PaWnCxjvhq4x_updFdFWVHjHwNbmFWf4lYvA",
+        image: "/images/p_woodland.png",
     },
     {
         id: 5,
         name: "River Stone",
         rating: 4.7,
         color: "Blue & Grey / Fishtail",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfPnl7V_6J_3PVPqdXNhS2BzNUTL9nT7wvunfeGFzUoCryzJkHCqSyojQQf7RfmnNOG3bhxHq8YIs9pnZM2GPDxhl9jymuYXUZC8Mw9XfXZq9Sq9ETh2Khlhr2XQx8olmDYU8VSwunBkJReDGZ-9_QdpnQPFo6ItqY5Vqg41l07nqDqnCUJ4r1IRLVr5RugU_RNGxJuwZVQuk2oGVy0NmrJIRxnd4hoyNN2b1hV9KMnsdU2BatOFKfeUTWjxo0jDfF78nOS3GebCM",
+        image: "/images/p_river.png",
     },
     {
         id: 6,
         name: "Emergency Flare",
         rating: 4.6,
         color: "Red / King Cobra",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzwurCjiNBD6c4X8iQr9TukPb9acG359rVimGM5dv6Z-JUreKSbgQGyQI3usRub_g-kkSG5rA4CmYHnKViV7vUohzQ2YztR7bqYqLP4rSaTCldDWqFcwxqs2Ns0oEjqQnqMuU-NecvcZRYWC8cS5LmMkHQHHa7hk6pZj0eNG3BTveGFhASYgS0KZvh4-G2CZRlr0oS94apnSmPLZrC754F5lRxaGBDIoDN-Y8ujNxZaZEMeztCfAXvumAe-37hA-g74preHQ6jT9c",
+        image: "/images/p_flare.png",
     }
 ];
 

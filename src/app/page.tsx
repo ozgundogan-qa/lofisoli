@@ -16,7 +16,7 @@ export default function Home() {
           className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-[15000ms] ease-in-out hover:scale-105"
           style={{
             backgroundImage:
-              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk8ZpDv4d9Iu_ZrK59gWT2LnlxMGTX-JpYkxb2e4Aj-bDVzK4fh0Y0MJAuA-hEzvif4V-gYIvOzTeclTjhkW7PGzZCNLVoHaYoEBC3gCn2iO8wvUPfCLQ9MfBFoZ5OnbCEAGF64sTRtMJKIdLo-GyameGOhtwwzdR3nY5vpKjUV6FUGWOGNDgspupIgQq_ceku3f3vqnv-tYAMAAIUxkWp_W9LYdnOQtvk3dzTxofCjbIB8leKol1BG49iswTg2cRd8R7vSCh4MJI")',
+              'url("/images/paracord_hero_bg.png")',
           }}
         />
         {/* Overlay */}
@@ -101,7 +101,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <img
-                src="https://plus.unsplash.com/premium_photo-1762539798281-e694eeab5d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/images/paracord_material.png"
                 alt="Paracord Material"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -155,8 +155,8 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH7WiACNbgulOFCzW-v3MMsgMPzpbW9FzPcIoxZoxIvHYeIjxF6w1k3k64QGaJVef3uTVre1AZxdpS30d9t1zAkFbDc4148qmifdQLGRe2ChHUCJ82-dbIgHKsEgxkSDRFO9icPEG50e7VokTH-55F1nTklZmIwESsaf4S_D_Xo2O4TwfFnNNSCXR6Yj6pLVRYkkMOfh0JGcjFGcaGGVjSKvg0b-5BYGTQqLtqyt6RtsPwe5puqP7axGFBm1S9-sj9odf1y070Weg"
-                alt="Climber"
+                src="/images/paracord_durability.png"
+                alt="Paracord Use"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
             </motion.div>

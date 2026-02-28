@@ -14,7 +14,7 @@ export default function BrandStoryPage() {
                     className="absolute inset-0 z-0 h-full w-full bg-cover bg-center"
                     style={{
                         backgroundImage:
-                            'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCqR4lMvJ2j1_mS35-iW4QkF9-y91a2Oa4A7J8Lq7Z5J2kYcI1pC3H7p9m8Tj02mC3Z1R2M3D4F5G6H7J8K9L0M1N2O3P4Q5R6S7T8U9V0W1X2Y3Z4A5B6C7D8E9F0G1H2I3J4K5L6M7N8O9P0Q1R2S3T4U5V6W7X8Y9Z")',
+                            'url("/images/h_hero.png")',
                     }}
                 >
                     <div className="absolute inset-0 bg-black/60" />
@@ -53,7 +53,7 @@ export default function BrandStoryPage() {
                     <div className="order-1 md:order-2">
                         <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border">
                             <img
-                                src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=1636&auto=format&fit=crop"
+                                src="/images/h_story.png"
                                 alt="Crafting Paracord"
                                 className="w-full h-full object-cover"
                             />
