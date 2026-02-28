@@ -1,17 +1,12 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Inter } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
-// Premium ve organik hissiyat için Instrument Serif
-const serifFont = Instrument_Serif({ 
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-serif',
-});
-
-// Temiz ve okunaklı detay metinleri için Inter
-const sansFont = Inter({ 
+// Cleaner modern font chosen from ui-ux-pro-max guidelines (Manrope based on Stitch design)
+const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-sans',
 });
@@ -27,13 +22,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className="scroll-smooth">
+    <html lang="tr" className="dark scroll-smooth">
       <body className={cn(
-        "min-h-screen font-sans antialiased",
-        sansFont.variable,
-        serifFont.variable
+        "min-h-screen font-sans antialiased bg-background text-foreground flex flex-col",
+        manrope.variable,
+        manrope.className
       )}>
-        {children}
+        <Header />
+        <main className="flex-1 flex flex-col items-center w-full">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

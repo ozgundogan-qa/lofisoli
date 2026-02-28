@@ -1,7 +1,5 @@
 /** @type {import('next').Config} */
 const config = {
-  images: {
-    domains: ["images.unsplash.com"],
-  }
+  // Local images are used now, no need for domains/remotePatterns configuration
 };
 module.exports = config;

@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function CraftsmanshipSection() {
@@ -19,7 +18,7 @@ export default function CraftsmanshipSection() {
                     <div className="group flex flex-col items-center text-center space-y-6">
                         <div className="relative w-full aspect-square overflow-hidden rounded-sm mb-4">
                             <Image
-                                src="https://images.unsplash.com/photo-1544640808-32cb4f5f64b3?q=80&w=2787&auto=format&fit=crop"
+                                src="/images/craft-1.jpg"
                                 alt="550 Paracord detayı"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -38,7 +37,7 @@ export default function CraftsmanshipSection() {
                     <div className="group flex flex-col items-center text-center space-y-6 md:-translate-y-12">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-sm mb-4">
                             <Image
-                                src="https://images.unsplash.com/photo-1558227038-ec47cc55877c?q=80&w=2670&auto=format&fit=crop"
+                                src="/images/craft-2.jpg"
                                 alt="El dokuması detayı"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -57,7 +56,7 @@ export default function CraftsmanshipSection() {
                     <div className="group flex flex-col items-center text-center space-y-6">
                         <div className="relative w-full aspect-square overflow-hidden rounded-sm mb-4">
                             <Image
-                                src="https://images.unsplash.com/photo-1629853872251-512c1b87a937?q=80&w=2670&auto=format&fit=crop"
+                                src="/images/craft-3.jpg"
                                 alt="Paslanmaz toka detayı"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"

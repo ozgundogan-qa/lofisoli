@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -8,7 +7,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-black/30 z-10" /> {/* Yumuşak Overlay */}
                 <Image
-                    src="https://images.unsplash.com/photo-1504280390226-9d332616428d?q=80&w=2670&auto=format&fit=crop"
+                    src="/images/hero.jpg"
                     alt="Ormanda kamp deneyimi"
                     fill
                     priority

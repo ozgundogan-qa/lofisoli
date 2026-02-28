@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FooterCTASection() {
     return (
         <section id="satin-al" className="bg-primary text-primary-foreground py-24 md:py-32 relative overflow-hidden">
@@ -11,20 +13,20 @@ export default function FooterCTASection() {
                     Hikayeni bileğinde taşı. Zorlu koşullar için örülmüş, zarafetle tamamlanmış parçalara göz at.
                 </p>
 
-                <a
+                <Link
                     href="#"
                     className="inline-flex items-center justify-center px-10 py-5 bg-background text-foreground font-medium uppercase tracking-widest text-sm hover:bg-background/90 transition-all duration-300 hover:scale-105"
                 >
                     Koleksiyonu İncele
-                </a>
+                </Link>
 
                 {/* Minimal Footer */}
                 <div className="pt-24 mt-12 border-t border-primary-foreground/20 w-full flex flex-col md:flex-row justify-between items-center text-sm font-light text-primary-foreground/60 space-y-4 md:space-y-0">
                     <p>© {new Date().getFullYear()} Solivagus Outdoor.</p>
                     <div className="flex space-x-6">
-                        <a href="#" className="hover:text-primary-foreground transition-colors">Instagram</a>
-                        <a href="#" className="hover:text-primary-foreground transition-colors">Pinterest</a>
-                        <a href="#" className="hover:text-primary-foreground transition-colors">İletişim</a>
+                        <Link href="#" className="hover:text-primary-foreground transition-colors">Instagram</Link>
+                        <Link href="#" className="hover:text-primary-foreground transition-colors">Pinterest</Link>
+                        <Link href="#" className="hover:text-primary-foreground transition-colors">İletişim</Link>
                     </div>
                 </div>
             </div>

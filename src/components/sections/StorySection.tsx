@@ -11,7 +11,7 @@ export default function StorySection() {
                         <div className="absolute inset-0 bg-secondary/30 transform translate-x-4 translate-y-4 rounded-sm" />
                         <div className="relative h-full w-full overflow-hidden rounded-sm">
                             <Image
-                                src="https://images.unsplash.com/photo-1616422285623-14ff0162a84d?q=80&w=2670&auto=format&fit=crop"
+                                src="/images/story.jpg"
                                 alt="El örgüsü paracord detayları"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-1000"
@@ -30,7 +30,7 @@ export default function StorySection() {
 
                         <div className="space-y-6 text-foreground/80 font-sans font-light leading-relaxed text-lg">
                             <p>
-                                Solivagus, Latince'de "yalnız dolaşan" anlamına gelir. Biz, rotasını kendi çizenlerin, ateşin etrafında sessizliği dinleyenlerin ve vahşi doğada huzur bulanların hikayesini örüyoruz.
+                                Solivagus, Latince&apos;de &quot;yalnız dolaşan&quot; anlamına gelir. Biz, rotasını kendi çizenlerin, ateşin etrafında sessizliği dinleyenlerin ve vahşi doğada huzur bulanların hikayesini örüyoruz.
                             </p>
                             <p>
                                 Sadece bir bileklik üretmiyoruz. Her bir düğüm; geçirdiğimiz saatlerin, aşılmaz sandığımız patikaların ve doğayla olan sarsılmaz bağımızın bir yansıması. Şehirden uzaklaştığınızda bileğinize bakıp ormanın çağrısını hatırlamanız için, en sert koşullara dayanacak şekilde elde dokuyoruz.
@@ -39,7 +39,7 @@ export default function StorySection() {
 
                         <div className="pt-8 border-t border-border/30">
                             <p className="font-serif text-xl md:text-2xl text-foreground italic">
-                                "Her düğümde bir kilometre."
+                                &quot;Her düğümde bir kilometre.&quot;
                             </p>
                         </div>
                     </div>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paracord Co. - Sustainable Survival Gear</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#1a3323", // Slightly lighter than background-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#112217] dark:text-white font-display overflow-x-hidden">
+<!-- Top Navigation -->
+<div class="relative flex w-full flex-col">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#23482f] bg-background-dark/80 backdrop-blur-md px-4 py-3 md:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-[32px]">landscape</span>
+</div>
+<h2 class="text-white text-xl font-extrabold leading-tight tracking-[-0.015em]">Paracord Co.</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Home</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Store</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Our Story</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Bracelet Builder</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 md:gap-8">
+<div class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#23482f] group focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+<div class="text-[#92c9a4] flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-[#92c9a4] px-3 text-sm font-normal leading-normal" placeholder="Search gear..."/>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex size-10 items-center justify-center rounded-lg bg-[#23482f] text-white hover:bg-[#2c5a3b] transition-colors md:hidden">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="relative flex size-10 md:w-auto md:min-w-[84px] md:px-4 items-center justify-center rounded-lg bg-[#23482f] text-white hover:bg-[#2c5a3b] transition-colors">
+<span class="material-symbols-outlined md:mr-2 text-[20px]">person</span>
+<span class="hidden md:inline text-sm font-bold">Profile</span>
+</button>
+<button class="relative flex size-10 md:w-auto md:min-w-[84px] md:px-4 items-center justify-center rounded-lg bg-primary text-[#102216] hover:bg-[#3bfd7a] transition-colors shadow-[0_0_15px_rgba(19,236,91,0.3)]">
+<span class="material-symbols-outlined md:mr-2 text-[20px]">shopping_cart</span>
+<span class="hidden md:inline text-sm font-bold">Cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black md:hidden">2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<div class="relative flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden">
+<!-- Background Image simulating Video Frame -->
+<div class="absolute inset-0 z-0 h-full w-full bg-cover bg-center" data-alt="Hiker reaching a summit with a vast mountain landscape in the background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk8ZpDv4d9Iu_ZrK59gWT2LnlxMGTX-JpYkxb2e4Aj-bDVzK4fh0Y0MJAuA-hEzvif4V-gYIvOzTeclTjhkW7PGzZCNLVoHaYoEBC3gCn2iO8wvUPfCLQ9MfBFoZ5OnbCEAGF64sTRtMJKIdLo-GyameGOhtwwzdR3nY5vpKjUV6FUGWOGNDgspupIgQq_ceku3f3vqnv-tYAMAAIUxkWp_W9LYdnOQtvk3dzTxofCjbIB8leKol1BG49iswTg2cRd8R7vSCh4MJI");'></div>
+<!-- Overlay -->
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+<div class="relative z-20 flex max-w-[960px] flex-col items-center gap-8 px-4 text-center">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-bold tracking-wider uppercase text-sm animate-pulse">New Collection Drop</span>
+<h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-7xl drop-shadow-lg">
+                        Survival Gear Meets<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Sustainable Style</span>
+</h1>
+<p class="text-white/90 text-lg font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                        Handcrafted eco-friendly paracord bracelets designed for the modern explorer. 
+                        Rugged durability for your next adventure.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="flex h-14 min-w-[160px] cursor-pointer items-center justify-center rounded-lg bg-primary px-8 text-background-dark text-base font-bold transition-all hover:bg-primary/90 hover:scale-105 shadow-[0_0_20px_rgba(19,236,91,0.4)]">
+                        Shop the Collection
+                    </button>
+<button class="flex h-14 min-w-[160px] cursor-pointer items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 px-8 text-white text-base font-bold transition-all hover:bg-white/20">
+<span class="material-symbols-outlined mr-2">play_circle</span>
+                        Watch the Film
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 animate-bounce text-white/50">
+<span class="material-symbols-outlined text-4xl">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Features Section -->
+<section class="py-20 px-4 md:px-10 lg:px-40 bg-background-dark">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex flex-col gap-4 mb-16 text-center md:text-left">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest">Why Choose Us</h2>
+<h3 class="text-white text-3xl md:text-5xl font-bold leading-tight">Built for the Wild.<br/>Designed for the Earth.</h3>
+</div>
+<!-- Feature 1 -->
+<div class="grid md:grid-cols-2 gap-12 items-center mb-24 group">
+<div class="order-2 md:order-1 relative rounded-2xl overflow-hidden aspect-video md:aspect-square lg:aspect-[4/3]">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay z-10"></div>
+<img alt="Close up texture of paracord rope" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up texture of woven paracord rope showing detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAazbR57dojsRu8JRLsyv9-ouuqQ8IX8IIKJvPGWZ0t1z794ZoPyylLZFdFEfcKt3LyyiP2fBa9TRLYzI8P4YzMEWypiOFpXwRyqRHR84FHsJJXMxKAaX7RkfcYCz9HGsNFP54SM8xy-_gtAe--WWTuWBliQLu0_a8FWX1k2i53Rbsenec9vfpv1RhElhV6pjdOrp0GqS4NraTznbN6aNt25mR1EL9VWdrgY6C-Z2NkTmBTp9camAR0Btj9Px_p17oX4q6YXIve984"/>
+</div>
+<div class="order-1 md:order-2 flex flex-col gap-6">
+<div class="size-14 rounded-full bg-surface-dark border border-[#23482f] flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">recycling</span>
+</div>
+<h4 class="text-white text-2xl md:text-4xl font-bold">Recycled Ocean Plastic</h4>
+<p class="text-[#92c9a4] text-lg leading-relaxed">
+                            We don't just explore nature; we protect it. Our signature "Eco-Core" cord is manufactured from 100% recycled plastics recovered from our oceans.
+                        </p>
+<ul class="flex flex-col gap-3 mt-2">
+<li class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Certified Post-Consumer Waste</span>
+</li>
+<li class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Zero-Dye Processing</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="grid md:grid-cols-2 gap-12 items-center group">
+<div class="flex flex-col gap-6">
+<div class="size-14 rounded-full bg-surface-dark border border-[#23482f] flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h4 class="text-white text-2xl md:text-4xl font-bold">Military-Grade Durability</h4>
+<p class="text-[#92c9a4] text-lg leading-relaxed">
+                            When things go south, you need gear you can trust. Our bracelets unravel into 10 feet of 550lb tensile strength cord, ready for any emergency.
+                        </p>
+<ul class="flex flex-col gap-3 mt-2">
+<li class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>550lb Breaking Point</span>
+</li>
+<li class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Rot and UV Resistant</span>
+</li>
+</ul>
+</div>
+<div class="relative rounded-2xl overflow-hidden aspect-video md:aspect-square lg:aspect-[4/3]">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay z-10"></div>
+<img alt="Mountain climber hanging from a cliff edge" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Mountain climber securing gear on a rocky cliff face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH7WiACNbgulOFCzW-v3MMsgMPzpbW9FzPcIoxZoxIvHYeIjxF6w1k3k64QGaJVef3uTVre1AZxdpS30d9t1zAkFbDc4148qmifdQLGRe2ChHUCJ82-dbIgHKsEgxkSDRFO9icPEG50e7VokTH-55F1nTklZmIwESsaf4S_D_Xo2O4TwfFnNNSCXR6Yj6pLVRYkkMOfh0JGcjFGcaGGVjSKvg0b-5BYGTQqLtqyt6RtsPwe5puqP7axGFBm1S9-sj9odf1y070Weg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products Carousel -->
+<section class="py-20 bg-surface-dark border-y border-[#23482f]">
+<div class="px-4 md:px-10 lg:px-40 max-w-[1440px] mx-auto">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-white text-3xl font-bold mb-2">Trending Gear</h2>
+<p class="text-[#92c9a4]">Equip yourself with our best-sellers.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="size-10 rounded-full border border-[#23482f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="size-10 rounded-full border border-[#23482f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Carousel Container -->
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-8 snap-x snap-mandatory">
+<!-- Product Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center bg-background-dark rounded-xl overflow-hidden group border border-[#23482f] hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(19,236,91,0.1)]">
+<div class="relative h-[320px] bg-[#1a2e22] overflow-hidden">
+<span class="absolute top-3 left-3 bg-primary text-background-dark text-xs font-bold px-2 py-1 rounded">BESTSELLER</span>
+<img alt="Paracord bracelet on wrist" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Green survival bracelet worn on a wrist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5FAgICdtrdFWaDa5QUnl_Mf-nPnoMrup6nRDKHTeou3AVWfoltfHIrXNGXoYpVAVpJQf-34K8Vx6IpafEiPT0kbtu_2m9F4F7VN--36gY3-1xPTg4shAJ71BwAx2hOcHiLG49Mxo2n9Y44U9kxVEDrybi1dFpDS__E1Q4kVVwsizJi92APhf-4uRPxJf02evD2o11A9WG2b-66IyT5G6SQpTSATCrcwC4FyXb123vUngp1LMd-JOVc3mfVsS2NjVDYj19DRJC9Ao"/>
+<!-- Quick Action Overlay -->
+<div class="absolute bottom-4 left-0 right-0 px-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+<button class="w-full h-10 bg-white text-background-dark font-bold rounded-lg hover:bg-gray-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-white font-bold text-lg mb-1">The Summit</h3>
+<div class="flex justify-between items-center">
+<span class="text-[#92c9a4] text-sm">Forest Green / Black</span>
+<span class="text-white font-bold">$24.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center bg-background-dark rounded-xl overflow-hidden group border border-[#23482f] hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(19,236,91,0.1)]">
+<div class="relative h-[320px] bg-[#1a2e22] overflow-hidden">
+<img alt="Black tactical paracord bracelet" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Black tactical paracord bracelet on dark surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Lmx4aiyNHLLw6pgikTFAA6hxRRpNT24JcOTm4ITeHix2kiNT-IXszBjgKS63RsPHVYHL8VXbUdGHnux0WcjkJktc_5E70o-JaWkSMAZTdk8LfI7X79wYlTZ_BH4AUJUbTQm1JV5eK_GYrFbt_XSGwhFZJBMom8dWUxbpLUWviaFFPQp8Kx_45uHWU_hJ8WB0OcehWm8OcNS3np8dtqtOlcJBhitHxQqbcGipwS2xZjUspP0KYZOeq5BynR0ba8tyGvKQBbJnLk4"/>
+<div class="absolute bottom-4 left-0 right-0 px-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+<button class="w-full h-10 bg-white text-background-dark font-bold rounded-lg hover:bg-gray-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-white font-bold text-lg mb-1">The Night Ops</h3>
+<div class="flex justify-between items-center">
+<span class="text-[#92c9a4] text-sm">Matte Black</span>
+<span class="text-white font-bold">$28.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center bg-background-dark rounded-xl overflow-hidden group border border-[#23482f] hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(19,236,91,0.1)]">
+<div class="relative h-[320px] bg-[#1a2e22] overflow-hidden">
+<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+<img alt="Orange and grey survival bracelet" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant orange and grey survival bracelet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlAZY0q3f7ZSg7HVHrCuej9E5Z2YN4i835xVUUGWoNiGYsP3u5nuAWUiYWHlMVPzRcRZmPR1ddlcj8pQE1YLteErqKyhyvLjmUAsVKE179Qr5aJHRzW6Q20a4MitvCCHkLzMiT5qPKQPGj9r6lQHv63bqVKwnD0awIWt6Vx_xdM6UAxHhuqQTqJE1jZjkIGnDwUBLJ2AO6NHSLLLjR6u5emxIVU0PZTFAvM0YYFUMMiaMvBLujplrltt4aue4zqEIuacb5GvLpIdg"/>
+<div class="absolute bottom-4 left-0 right-0 px-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+<button class="w-full h-10 bg-white text-background-dark font-bold rounded-lg hover:bg-gray-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-white font-bold text-lg mb-1">The Rescue</h3>
+<div class="flex justify-between items-center">
+<span class="text-[#92c9a4] text-sm">Safety Orange</span>
+<div>
+<span class="text-white/50 text-sm line-through mr-1">$24.00</span>
+<span class="text-white font-bold">$19.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center bg-background-dark rounded-xl overflow-hidden group border border-[#23482f] hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(19,236,91,0.1)]">
+<div class="relative h-[320px] bg-[#1a2e22] overflow-hidden">
+<img alt="Camo pattern bracelet" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Camouflage pattern survival bracelet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUr5UBxL__rScMF1g3OuspYX6ba9xQCpOR7fZfnbKCuihKgUED170clCnajTEKJd9jWzWegkI5_XgVC3IpTQrPrl4hBkecKrmJqkxEB5jTf-nnpE9FKkHznadie319so9ZyOJgp3AKrT2nLBuZ_UfBixGe2dhJ_2-Nd6M4Vmnw6m-NE6mKXH39BU_QcKScNXFcJvAkVB7Drn-qKixmFL0lyam_d-PyJ5nd-UNZ8D9-_y_lkViFiYcSr8qWsTbk8-hflPR8ZfB7chE"/>
+<div class="absolute bottom-4 left-0 right-0 px-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+<button class="w-full h-10 bg-white text-background-dark font-bold rounded-lg hover:bg-gray-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-white font-bold text-lg mb-1">The Hunter</h3>
+<div class="flex justify-between items-center">
+<span class="text-[#92c9a4] text-sm">Woodland Camo</span>
+<span class="text-white font-bold">$26.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Builder CTA Section -->
+<section class="relative py-32 px-4 overflow-hidden">
+<div class="absolute inset-0 bg-background-dark">
+<!-- Abstract Pattern Background -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#23482f 1px, transparent 1px); background-size: 32px 32px;"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-primary text-sm font-bold mb-6">
+<span class="material-symbols-outlined text-sm">construction</span>
+                    CUSTOMIZATION STUDIO
+                </div>
+<h2 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                    Your Adventure.<br/>
+<span class="text-primary">Your Colors.</span>
+</h2>
+<p class="text-xl text-[#92c9a4] mb-10 max-w-2xl mx-auto">
+                    Design a bracelet that matches your gear. Choose from over 50 cord colors, 3 buckle types, and custom sizing.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="flex h-14 min-w-[200px] items-center justify-center rounded-lg bg-primary text-background-dark text-lg font-bold transition-transform hover:scale-105 shadow-[0_0_25px_rgba(19,236,91,0.5)]">
+                        Launch Builder
+                    </button>
+<a class="text-white font-semibold hover:text-primary transition-colors flex items-center gap-2" href="#">
+                        View Inspiration Gallery
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0b1810] border-t border-[#23482f] pt-16 pb-8">
+<div class="px-4 md:px-10 lg:px-40 max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<!-- Brand Column -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-[24px]">landscape</span>
+</div>
+<h2 class="text-white text-lg font-extrabold">Paracord Co.</h2>
+</div>
+<p class="text-[#92c9a4] text-sm leading-relaxed">
+                            Crafting premium survival gear since 2015. Tested in the wild, made for the journey.
+                        </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-[#1a2e22] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="#">
+<!-- Twitter/X Icon Placeholder via text -->
+<span class="font-bold text-sm">𝕏</span>
+</a>
+<a class="size-10 rounded-full bg-[#1a2e22] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="#">
+<span class="font-bold text-sm">In</span>
+</a>
+<a class="size-10 rounded-full bg-[#1a2e22] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-colors" href="#">
+<span class="font-bold text-sm">Fb</span>
+</a>
+</div>
+</div>
+<!-- Links Column -->
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider text-sm">Shop</h4>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">All Bracelets</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Survival Kits</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Accessories</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Gift Cards</a>
+</div>
+<!-- Links Column -->
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider text-sm">Support</h4>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Track Order</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Warranty Info</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Returns &amp; Exchanges</a>
+<a class="text-[#92c9a4] hover:text-primary transition-colors text-sm" href="#">Contact Us</a>
+</div>
+<!-- Newsletter Column -->
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider text-sm">Join the Expedition</h4>
+<p class="text-[#92c9a4] text-sm">Get 10% off your first order and exclusive access to new drops.</p>
+<form class="flex flex-col gap-3">
+<input class="w-full h-12 rounded-lg bg-[#1a2e22] border-none text-white placeholder:text-[#92c9a4]/50 focus:ring-1 focus:ring-primary px-4" placeholder="Enter your email" type="email"/>
+<button class="w-full h-12 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/90 transition-colors">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="border-t border-[#23482f] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[#92c9a4] text-xs">© 2024 Paracord Co. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-[#92c9a4] hover:text-white text-xs" href="#">Privacy Policy</a>
+<a class="text-[#92c9a4] hover:text-white text-xs" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

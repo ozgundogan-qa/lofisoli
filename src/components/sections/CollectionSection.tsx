@@ -5,19 +5,19 @@ const collection = [
     {
         name: "Kobra / Haki",
         desc: "Zorlu orman kampları için...",
-        image: "https://images.unsplash.com/photo-1558227038-ec47cc55877c?q=80&w=2670&auto=format&fit=crop",
+        image: "/images/product-1.jpg",
         alignment: "self-start"
     },
     {
         name: "Balıksırtı / Kum",
         desc: "Gündelik dağ yürüyüşleri...",
-        image: "https://images.unsplash.com/photo-1616422285623-14ff0162a84d?q=80&w=2670&auto=format&fit=crop",
+        image: "/images/product-2.jpg",
         alignment: "self-center scale-110"
     },
     {
         name: "Kutu / Ateş",
         desc: "Yoldan çıkmayı sevenlere...",
-        image: "https://images.unsplash.com/photo-1544640808-32cb4f5f64b3?q=80&w=2787&auto=format&fit=crop",
+        image: "/images/product-3.jpg",
         alignment: "self-end"
     }
 ];
@@ -34,7 +34,7 @@ export default function CollectionSection() {
                         </h2>
                     </div>
                     <p className="max-w-sm text-foreground/70 font-sans font-light text-base mt-6 md:mt-0 text-right">
-                        Her doğa tutkunu için özel olarak seçilmiş, Solivagus'un en ikonik örgüleri.
+                        Her doğa tutkunu için özel olarak seçilmiş, Solivagus&apos;un en ikonik örgüleri.
                     </p>
                 </div>
 

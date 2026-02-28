@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bracelet Store Collection</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#1c3225",
+                        "border-dark": "#23482f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for sidebar if needed */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth fade for hover images */
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark bg-[#112217]/95 backdrop-blur-md px-4 sm:px-10 py-3">
+<div class="flex items-center gap-4 sm:gap-8">
+<a class="flex items-center gap-2 sm:gap-4 text-white hover:text-primary transition-colors" href="#">
+<div class="size-6 sm:size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-white text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">EcoCord</h2>
+</a>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Shop</a>
+<a class="text-gray-300 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">About</a>
+<a class="text-gray-300 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Sustainability</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 sm:gap-8">
+<label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full group focus-within:ring-1 focus-within:ring-primary">
+<div class="text-[#92c9a4] flex border-none bg-surface-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-surface-dark focus:border-none h-full placeholder:text-[#92c9a4] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search products..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center overflow-hidden rounded-lg size-10 bg-surface-dark text-white hover:bg-surface-dark/80 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-lg size-10 bg-surface-dark text-white hover:bg-surface-dark/80 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+<button class="md:hidden flex items-center justify-center overflow-hidden rounded-lg size-10 bg-surface-dark text-white hover:bg-surface-dark/80 transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<div class="relative w-full">
+<div class="absolute inset-0 bg-cover bg-center z-0" data-alt="Dark moody forest background texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxHVJSVKfNAWGVYpp_s3qxhgSHqcHME8GtfP81uXJmXqFKy53pAOc8TXageIquOmXnje4oH2UZWtLeNqyltFzv1wi3XF-qcbEjf9SamBPPOejF-UjaUNTWPxnd4YfZ4JWGID4H6tlUt3e2kruJXZPs1Wt4UoHlkHMwO_W6WIErUX_ld73xdEv5yoyMbsB59wfO9ih_Sal3a1O0I2Z-aogNjT75O2aexizvYh__vNaYOm6pswj0FihHvER865bj4SrDcDtueQuMOGw");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent z-10"></div>
+<div class="relative z-20 px-4 sm:px-10 py-8 sm:py-12 max-w-[1440px] mx-auto w-full">
+<div class="flex flex-col gap-4">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-[#92c9a4] hover:text-primary font-medium" href="#">Home</a>
+<span class="text-[#92c9a4] font-medium">/</span>
+<a class="text-[#92c9a4] hover:text-primary font-medium" href="#">Shop</a>
+<span class="text-[#92c9a4] font-medium">/</span>
+<span class="text-white font-medium">All Bracelets</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-2">The Collection</h1>
+<p class="text-gray-400 max-w-xl">Rugged, durable, and eco-friendly. Discover our range of paracord bracelets designed for the wild.</p>
+</div>
+<!-- Mobile Sort Dropdown (Visible only on small screens) -->
+<div class="lg:hidden relative">
+<select class="bg-surface-dark border border-border-dark text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5">
+<option selected="">Sort by: Featured</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="newest">Newest Arrivals</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 sm:px-10 pb-20 max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Filters (Desktop) -->
+<aside class="hidden lg:block w-64 shrink-0 space-y-8 sticky top-24 h-fit">
+<!-- Price Range -->
+<div>
+<h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+                        Price Range
+                    </h3>
+<div class="bg-surface-dark p-4 rounded-xl border border-border-dark">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm text-gray-400">$15</span>
+<span class="text-sm text-gray-400">$85</span>
+</div>
+<div class="relative h-1 w-full bg-[#326744] rounded-full mb-2">
+<div class="absolute left-[20%] right-[30%] top-0 bottom-0 bg-primary rounded-full"></div>
+<div class="absolute left-[20%] top-1/2 -translate-y-1/2 size-4 bg-white border-2 border-primary rounded-full cursor-pointer hover:scale-110 transition-transform shadow-[0_0_10px_rgba(19,236,91,0.5)]"></div>
+<div class="absolute right-[30%] top-1/2 -translate-y-1/2 size-4 bg-white border-2 border-primary rounded-full cursor-pointer hover:scale-110 transition-transform shadow-[0_0_10px_rgba(19,236,91,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Filters Accordion -->
+<div class="flex flex-col gap-3">
+<details class="group rounded-xl border border-border-dark bg-surface-dark overflow-hidden transition-all duration-300" open="">
+<summary class="flex cursor-pointer items-center justify-between p-4 bg-surface-dark hover:bg-[#2a4d35] transition-colors">
+<span class="text-white text-sm font-bold uppercase tracking-wider">Color Palette</span>
+<span class="text-gray-400 transition-transform duration-300 group-open:rotate-180 material-symbols-outlined text-[20px]">expand_more</span>
+</summary>
+<div class="p-4 pt-0 border-t border-border-dark/50">
+<div class="space-y-2 mt-3">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input checked="" class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Forest Green</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Blaze Orange</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Midnight Black</span>
+</label>
+</div>
+</div>
+</details>
+<details class="group rounded-xl border border-border-dark bg-surface-dark overflow-hidden transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between p-4 bg-surface-dark hover:bg-[#2a4d35] transition-colors">
+<span class="text-white text-sm font-bold uppercase tracking-wider">Cord Thickness</span>
+<span class="text-gray-400 transition-transform duration-300 group-open:rotate-180 material-symbols-outlined text-[20px]">expand_more</span>
+</summary>
+<div class="p-4 pt-0 border-t border-border-dark/50">
+<div class="space-y-2 mt-3">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Type III (550)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Micro Cord</span>
+</label>
+</div>
+</div>
+</details>
+<details class="group rounded-xl border border-border-dark bg-surface-dark overflow-hidden transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between p-4 bg-surface-dark hover:bg-[#2a4d35] transition-colors">
+<span class="text-white text-sm font-bold uppercase tracking-wider">Clasp Material</span>
+<span class="text-gray-400 transition-transform duration-300 group-open:rotate-180 material-symbols-outlined text-[20px]">expand_more</span>
+</summary>
+<div class="p-4 pt-0 border-t border-border-dark/50">
+<div class="space-y-2 mt-3">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Stainless Steel</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Solid Brass</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<div class="relative flex items-center justify-center size-5 rounded-md border border-gray-600 bg-transparent group-hover/item:border-primary transition-colors">
+<input class="peer appearance-none absolute inset-0 w-full h-full cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 text-[16px]">check</span>
+</div>
+<span class="text-gray-300 text-sm group-hover/item:text-white transition-colors">Plastic Buckle</span>
+</label>
+</div>
+</div>
+</details>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<div class="flex-1">
+<!-- Sorting Bar (Desktop) -->
+<div class="hidden lg:flex justify-between items-center mb-6 pb-4 border-b border-border-dark">
+<p class="text-gray-400 text-sm"><span class="text-white font-bold">12</span> Products Found</p>
+<div class="flex items-center gap-3">
+<label class="text-sm text-gray-400" for="sort">Sort By:</label>
+<select class="bg-surface-dark border-none text-white text-sm rounded-lg focus:ring-1 focus:ring-primary py-1.5 pl-3 pr-8 cursor-pointer" id="sort">
+<option>Featured</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest</option>
+</select>
+</div>
+</div>
+<!-- Active Filters Tags (Mobile/Desktop) -->
+<div class="flex flex-wrap gap-2 mb-6">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-dark border border-border-dark text-xs text-primary font-medium">
+                        Forest Green
+                        <button class="hover:text-white"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-dark border border-border-dark text-xs text-primary font-medium">
+                        $15 - $85
+                        <button class="hover:text-white"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<button class="text-xs text-gray-400 hover:text-white underline decoration-gray-500 underline-offset-4 ml-2">Clear All</button>
+</div>
+<!-- The Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<!-- Main Image -->
+<img alt="Paracord bracelet on dark stone" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Green paracord bracelet on a rock" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhyiSJ6JMzlyOQuNUu27MaLsInJL_kspMzyjSAlM7G4k3-qVL09r5-BRPWq-wiwdEHuMtfXshyNbPNtWssy7cC-NA22UXnW-eyOVY0zQB0N7_K2M3g-genEM4nBVw91FoCRpJwqZoxo5CpP1_Rn4zNnWXkAbchYD8LLDSp6bg0z3tuEbDUuAogi4UzS6zmjqIjccJ4HStH_Zi2JglSHyHlqI-llGtE2s7SrPgRfHdym7LMcutpdpFHZ4vzUeHeFjAfDRbQTNsbHLA"/>
+<!-- Overlay actions -->
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+<!-- Badge -->
+<div class="absolute top-3 left-3 bg-primary text-background-dark text-xs font-bold px-2 py-1 rounded">
+                                BESTSELLER
+                            </div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">The Survivor 550</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">4.9</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Forest Green / Steel</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$24.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<img alt="Black tactical bracelet detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Black braided bracelet macro shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK7PN8ZB5h2OJ3fJu-0KlZlQklhLub4gq7bs1ahyXQkpXfZs4ayHBVfurNSnB6zRy0oci4o8VpLxDs99Sre2_xkBAvZNuA_NrevzcDCdCc1vyBEth8Kq_b5k10lePiYR0cuLITO9MqWzc9F_EH0cC_BTVI42EsWo3w1Q_IMmUFH_-5COrifrWzjt-a9QenjeryIut42VB69CRYzpuZ54npDUzReKttl5btXY6dWwwzGbKRh6HlEGNmiL6RDjQ20QIcKDVD4mpGVl0"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Tactical Blackout</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">4.8</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Midnight Black / Cobra</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$28.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<img alt="Orange micro cord bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist orange bracelet on wood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOoQTYAzt1yknyei3j1YWLAKcQ1fJyRIJ4VdZtCJ8d6KRZ08Ecskx5z1tYwXEXEoBsQ9FT00BzKDUU1GiTMfYH4zHpHfxR4F8TvcrQPbi87Wg0fWMeAqPD1-8_VZnjcGxcLHfiZOVMNbHKk4Nj8Ecw0NmC3DKf-KgBqltmyRJCCruT_L06ayLhRkcnm9W0nZv95F_Q_5d3BC0KARfO_I3-yC6uu8M4Y2eBvGE-18KLmUJ11yplmaFghoYUbwlDBHuiO83qW5aqgyI"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+<!-- Badge -->
+<div class="absolute top-3 left-3 bg-white text-background-dark text-xs font-bold px-2 py-1 rounded">
+                                NEW
+                            </div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Alpine Micro-Cord</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">4.5</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Blaze Orange / Micro</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$18.50</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<img alt="Camo pattern bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Camouflage paracord bracelet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB75yikhlFGJQ52Q08UEgrF9CyDMnoHUXRcQy-MX-0StDWBmsBCvRbI3PJD_32bFnZ_J7lnJrvWWAhJebySXoZqA7oIEyNvdBIytaE1FtVqj6xSRMb_-LIciIekl8kgd1j5BiT2Y7IrzHdSqsTZDjTJJw092LYhwbccUlAkP2Z68jGTCLiWuLt312dIjXAb0MQNBewUEzXqleYUF_OJkDF5IqZSo9EakvXFZVGFKe3PaWnCxjvhq4x_updFdFWVHjHwNbmFWf4lYvA"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Woodland Camo</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">5.0</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Camo / Cobra Weave</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$25.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<img alt="Blue and grey bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Blue paracord bracelet on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfPnl7V_6J_3PVPqdXNhS2BzNUTL9nT7wvunfeGFzUoCryzJkHCqSyojQQf7RfmnNOG3bhxHq8YIs9pnZM2GPDxhl9jymuYXUZC8Mw9XfXZq9Sq9ETh2Khlhr2XQx8olmDYU8VSwunBkJReDGZ-9_QdpnQPFo6ItqY5Vqg41l07nqDqnCUJ4r1IRLVr5RugU_RNGxJuwZVQuk2oGVy0NmrJIRxnd4hoyNN2b1hV9KMnsdU2BatOFKfeUTWjxo0jDfF78nOS3GebCM"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">River Stone</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">4.7</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Blue &amp; Grey / Fishtail</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$22.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group flex flex-col bg-surface-dark rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]">
+<div class="relative aspect-square overflow-hidden bg-[#0a160f]">
+<img alt="Red emergency bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Red survival bracelet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzwurCjiNBD6c4X8iQr9TukPb9acG359rVimGM5dv6Z-JUreKSbgQGyQI3usRub_g-kkSG5rA4CmYHnKViV7vUohzQ2YztR7bqYqLP4rSaTCldDWqFcwxqs2Ns0oEjqQnqMuU-NecvcZRYWC8cS5LmMkHQHHa7hk6pZj0eNG3BTveGFhASYgS0KZvh4-G2CZRlr0oS94apnSmPLZrC754F5lRxaGBDIoDN-Y8ujNxZaZEMeztCfAXvumAe-37hA-g74preHQ6jT9c"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+<button class="size-10 rounded-full bg-primary text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="Quick Add">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+<button class="size-10 rounded-full bg-white text-background-dark flex items-center justify-center hover:scale-110 transition-transform shadow-lg" title="View Details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Emergency Flare</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-[14px] fill-current">star</span>
+<span class="text-xs text-gray-400">4.6</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm">Red / King Cobra</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$30.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-background-dark font-bold text-sm tracking-wide uppercase transition-all duration-300 transform hover:scale-105">
+                        Load More Products
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dark border-t border-border-dark pt-12 pb-8">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 text-white mb-6">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-lg font-bold">EcoCord</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Gear built for the wild, designed for the planet. Sustainable paracord essentials for your next adventure.
+                    </p>
+<div class="flex gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Shop</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">All Bracelets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Best Sellers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Accessories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Support</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Stay Updated</h4>
+<p class="text-gray-400 text-sm mb-4">Subscribe for exclusive drops and eco-news.</p>
+<form class="flex gap-2">
+<input class="bg-[#112217] border border-border-dark rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-primary flex-1" placeholder="Email address" type="email"/>
+<button class="bg-primary text-background-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition-colors" type="button">
+                            Join
+                        </button>
+</form>
+</div>
+</div>
+<div class="border-t border-border-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-sm">© 2024 EcoCord. All rights reserved.</p>
+<div class="flex gap-6 text-sm text-gray-500">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

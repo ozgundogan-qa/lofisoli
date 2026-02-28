@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paracord Co. - Custom Bracelet Builder</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#1a2e22",
+                        "surface-darker": "#0d1b11",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for panel */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1a2e22;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2f4f3a;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #13ec5b;
+        }
+        
+        /* Neumorphic shadow utility for dark mode */
+        .neumorph-dark {
+            box-shadow: 5px 5px 10px #0b160e, -5px -5px 10px #253e2e;
+        }
+        .neumorph-dark-inset {
+            box-shadow: inset 3px 3px 6px #0b160e, inset -3px -3px 6px #253e2e;
+        }
+        
+        /* Range slider styling */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #13ec5b;
+            cursor: pointer;
+            margin-top: -8px; 
+            box-shadow: 0 0 10px rgba(19, 236, 91, 0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #2f4f3a;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen flex flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#23482f] px-6 lg:px-10 py-3 bg-[#112217] z-50 sticky top-0">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Paracord Co.</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Shop</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Support</a>
+</div>
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#23482f] text-white hover:bg-primary hover:text-background-dark transition-all duration-300">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Main Layout -->
+<main class="flex flex-col lg:flex-row flex-1 h-[calc(100vh-64px)] overflow-hidden">
+<!-- Left: 3D Preview Area -->
+<section class="relative w-full lg:w-2/3 bg-surface-darker flex items-center justify-center overflow-hidden">
+<!-- Background Elements -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1a2e22] to-[#0d1b11] opacity-60"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+<!-- 3D Model Placeholder / Visualization -->
+<div class="relative z-10 w-full max-w-2xl aspect-square flex items-center justify-center p-8">
+<!-- Visual representation of the bracelet -->
+<div class="relative w-full h-full flex items-center justify-center group">
+<img alt="Detailed view of a green paracord survival bracelet with black buckle" class="object-contain w-3/4 h-3/4 drop-shadow-[0_20px_50px_rgba(19,236,91,0.15)] transition-transform duration-500 hover:scale-105 z-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw3LTGQCpYsxMgtPS0yC5w8YZfMtwLBYz_iPoAHTxtkQiVcLZ6jg_MPr1EEsfr1slSmu7hW9Uq46sDAnhuAxlkWYozuSfaKUCoBSa70s-IHFSRAnnkJlOPExF8R6pJCeWuvpWhJ897IdbvNNmC7Bavo92h8uqwD7EblmkYGXdPiBz48J8fSuZvTKzBfhlKu4hZbXJc0uDr3D-ZvnytJaNDFQ5t39QjAs-MQAK5qiMemvGeyeDCKinIw-NICI7vQ_HpeXM0BQjf4S0"/>
+<!-- Decorative ring to simulate 3D space -->
+<div class="absolute w-[80%] h-[80%] rounded-full border border-primary/10 animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute w-[60%] h-[60%] rounded-full border border-dashed border-primary/20 animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Hotspots -->
+<div class="absolute top-[30%] right-[25%] cursor-pointer group/spot">
+<div class="size-3 bg-primary rounded-full animate-ping absolute"></div>
+<div class="size-3 bg-primary rounded-full relative z-30"></div>
+<div class="absolute left-6 top-1/2 -translate-y-1/2 bg-surface-dark/90 backdrop-blur px-3 py-1 rounded text-xs text-primary whitespace-nowrap opacity-0 group-hover/spot:opacity-100 transition-opacity border border-primary/20">
+                             Heavy Duty Buckle
+                         </div>
+</div>
+</div>
+</div>
+<!-- Preview Controls (Zoom/Rotate) -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-20">
+<button class="size-10 rounded-full bg-surface-dark/80 backdrop-blur border border-white/10 text-white hover:bg-primary hover:text-black transition-colors flex items-center justify-center shadow-lg" title="Rotate Left">
+<span class="material-symbols-outlined">360</span>
+</button>
+<button class="size-10 rounded-full bg-surface-dark/80 backdrop-blur border border-white/10 text-white hover:bg-primary hover:text-black transition-colors flex items-center justify-center shadow-lg" title="Zoom In">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="size-10 rounded-full bg-surface-dark/80 backdrop-blur border border-white/10 text-white hover:bg-primary hover:text-black transition-colors flex items-center justify-center shadow-lg" title="Reset View">
+<span class="material-symbols-outlined">restart_alt</span>
+</button>
+</div>
+<!-- Eco Badge -->
+<div class="absolute top-8 left-8 flex items-center gap-2 bg-primary/10 border border-primary/20 backdrop-blur px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">recycling</span>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">100% Recycled Nylon</span>
+</div>
+</section>
+<!-- Right: Configuration Panel -->
+<aside class="w-full lg:w-1/3 bg-background-dark border-l border-[#23482f] flex flex-col h-full relative z-30">
+<!-- Steps Header -->
+<div class="p-6 border-b border-[#23482f]">
+<h1 class="text-2xl font-bold text-white mb-1">Cobra Weave Pro</h1>
+<p class="text-gray-400 text-sm mb-6">Customize your survival gear.</p>
+<!-- Step Indicator -->
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-[#23482f] -z-10"></div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="size-8 rounded-full bg-primary text-black flex items-center justify-center font-bold text-sm shadow-[0_0_10px_rgba(19,236,91,0.5)]">1</div>
+<span class="text-[10px] uppercase font-bold text-primary tracking-wider">Color</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="size-8 rounded-full bg-surface-dark border-2 border-[#23482f] text-gray-400 flex items-center justify-center font-bold text-sm group-hover:border-primary/50 transition-colors">2</div>
+<span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Hardw.</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="size-8 rounded-full bg-surface-dark border-2 border-[#23482f] text-gray-400 flex items-center justify-center font-bold text-sm group-hover:border-primary/50 transition-colors">3</div>
+<span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Size</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8">
+<!-- Section 1: Cord Colors -->
+<div class="animate-fade-in-up">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-white font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">palette</span>
+                            Primary Cord
+                        </h3>
+<span class="text-xs text-gray-400">Neon Green</span>
+</div>
+<div class="grid grid-cols-5 gap-3">
+<!-- Active Color -->
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-[#13ec5b] shadow-[0_0_0_2px_#102216,0_0_0_4px_#13ec5b]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-primary whitespace-nowrap opacity-100 transition-opacity">Neon</span>
+</button>
+<!-- Other Colors -->
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-red-600 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-blue-600 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-yellow-400 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-black border border-gray-700 hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-orange-500 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-purple-600 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-white border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-gray-500 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-[#23482f] border border-gray-600 hover:scale-110 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xs">add</span>
+</div>
+</button>
+</div>
+<div class="mt-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-white font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500 text-sm">palette</span>
+                                Secondary Cord
+                            </h3>
+<span class="text-xs text-gray-400">Black</span>
+</div>
+<div class="grid grid-cols-5 gap-3 opacity-60 hover:opacity-100 transition-opacity">
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-black shadow-[0_0_0_2px_#102216,0_0_0_4px_#ffffff]"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-[#13ec5b] border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-red-600 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-blue-600 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+<button class="relative group">
+<div class="w-full aspect-square rounded-full bg-gray-400 border border-transparent hover:scale-110 transition-transform"></div>
+</button>
+</div>
+</div>
+</div>
+<hr class="border-[#23482f]"/>
+<!-- Section 2: Buckle Hardware -->
+<div>
+<h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500 text-sm">hardware</span>
+                        Buckle Type
+                    </h3>
+<div class="grid grid-cols-1 gap-3">
+<!-- Option 1: Metal -->
+<label class="cursor-pointer group relative">
+<input class="peer sr-only" name="buckle" type="radio"/>
+<div class="flex items-center p-3 rounded-xl bg-surface-dark border border-[#23482f] peer-checked:border-primary peer-checked:bg-[#15291e] transition-all hover:bg-[#1e3628]">
+<div class="size-12 rounded-lg bg-black flex items-center justify-center text-gray-300 mr-4 shrink-0">
+<span class="material-symbols-outlined">link</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold text-white text-sm">Heavy Duty Metal</span>
+<span class="text-xs font-bold text-primary">+$5.00</span>
+</div>
+<p class="text-xs text-gray-400">Stainless steel, 500lb load rating.</p>
+</div>
+<div class="size-4 rounded-full border border-gray-500 ml-2 flex items-center justify-center peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-[10px] text-black opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+<!-- Option 2: Whistle (Active) -->
+<label class="cursor-pointer group relative">
+<input checked="" class="peer sr-only" name="buckle" type="radio"/>
+<div class="flex items-center p-3 rounded-xl bg-surface-dark border border-[#23482f] peer-checked:border-primary peer-checked:bg-[#15291e] transition-all hover:bg-[#1e3628] shadow-[0_0_15px_rgba(19,236,91,0.05)]">
+<div class="size-12 rounded-lg bg-black flex items-center justify-center text-gray-300 mr-4 shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold text-white text-sm">Survival Whistle</span>
+<span class="text-xs font-bold text-gray-500">Included</span>
+</div>
+<p class="text-xs text-gray-400">Integrated high-decibel whistle.</p>
+</div>
+<div class="size-4 rounded-full border border-gray-500 ml-2 flex items-center justify-center peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-[10px] text-black opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+<!-- Option 3: Plastic -->
+<label class="cursor-pointer group relative">
+<input class="peer sr-only" name="buckle" type="radio"/>
+<div class="flex items-center p-3 rounded-xl bg-surface-dark border border-[#23482f] peer-checked:border-primary peer-checked:bg-[#15291e] transition-all hover:bg-[#1e3628]">
+<div class="size-12 rounded-lg bg-black flex items-center justify-center text-gray-300 mr-4 shrink-0">
+<span class="material-symbols-outlined">check_box_outline_blank</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold text-white text-sm">Eco-Plastic</span>
+<span class="text-xs font-bold text-gray-500">Included</span>
+</div>
+<p class="text-xs text-gray-400">Recycled durable polymer.</p>
+</div>
+<div class="size-4 rounded-full border border-gray-500 ml-2 flex items-center justify-center peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-[10px] text-black opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<hr class="border-[#23482f]"/>
+<!-- Section 3: Size -->
+<div>
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-white font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500 text-sm">straighten</span>
+                            Wrist Size
+                        </h3>
+<span class="text-2xl font-bold text-primary font-mono">7.5"</span>
+</div>
+<div class="px-2">
+<input class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" max="10" min="5" step="0.25" type="range" value="7.5"/>
+<div class="flex justify-between mt-2 text-xs text-gray-500 font-mono">
+<span>5"</span>
+<span>6"</span>
+<span>7"</span>
+<span>8"</span>
+<span>9"</span>
+<span>10"</span>
+</div>
+</div>
+<p class="text-xs text-gray-400 mt-4 bg-surface-dark p-3 rounded border border-[#23482f] flex gap-2">
+<span class="material-symbols-outlined text-sm">info</span>
+                        Measure tight against wrist. We add allowance for fit.
+                    </p>
+</div>
+<!-- Spacer for scroll -->
+<div class="h-20"></div>
+</div>
+<!-- Sticky Footer Action Bar -->
+<div class="p-6 bg-[#112217] border-t border-[#23482f] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] z-40">
+<div class="flex items-center justify-between mb-4">
+<span class="text-gray-400 text-sm">Total Price</span>
+<span class="text-2xl font-bold text-white">$24.95</span>
+</div>
+<button class="w-full h-14 bg-primary hover:bg-[#10c94d] text-background-dark text-lg font-bold rounded-xl flex items-center justify-center gap-3 transition-all hover:shadow-[0_0_20px_rgba(19,236,91,0.4)] transform active:scale-[0.98]">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+                    Add to Cart
+                </button>
+</div>
+</aside>
+</main>
+</body></html>
