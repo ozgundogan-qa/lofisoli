@@ -1,75 +1,15 @@
 "use client";
 
-import { Typewriter } from "@/components/react-bits/Typewriter";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, ShieldCheck, Recycle } from "lucide-react";
+import { ShieldCheck, Recycle } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { HeroScrollVideo } from "@/components/layout/HeroScrollVideo";
 
 export default function Home() {
   return (
     <div className="w-full">
-      {/* Hero Section */}
-      <div className="relative flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-[15000ms] ease-in-out hover:scale-105"
-          style={{
-            backgroundImage:
-              'url("/images/paracord_hero_bg.png")',
-          }}
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/60 to-transparent" />
-
-        <div className="relative z-20 flex max-w-[960px] flex-col items-center gap-8 px-4 text-center mt-16">
-          <div className="flex flex-col gap-4 items-center">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-primary font-bold tracking-wider uppercase text-sm animate-pulse"
-            >
-              Yeni Sezon Koleksiyonu
-            </motion.span>
-
-            <h1 className="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-7xl drop-shadow-lg flex flex-col items-center overflow-hidden py-1">
-              <Typewriter text="Vahşi Doğa İçin" className="block" speed={0.05} />
-              <Typewriter text="Sürdürülebilir Tarz" delay={0.8} className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 mt-3" speed={0.06} />
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8, duration: 0.8 }}
-              className="text-white/90 text-lg font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md mt-6"
-            >
-              Modern kaşifler için tasarlanmış çevre dostu paracord bileklikler.
-              Bir sonraki maceranız için üstün dayanıklılık.
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-6"
-          >
-            <Button
-              className="h-14 min-w-[200px] text-base font-bold shadow-[0_0_20px_rgba(19,236,91,0.4)] hover:shadow-[0_0_30px_rgba(19,236,91,0.6)] hover:scale-105 transition-all duration-300 rounded-full"
-            >
-              Koleksiyonu Keşfet
-            </Button>
-            <Button
-              variant="outline"
-              className="h-14 min-w-[200px] bg-white/10 backdrop-blur-sm border-white/20 text-white text-base font-bold hover:bg-white/20 transition-all rounded-full"
-            >
-              <PlayCircle className="mr-2 h-5 w-5" />
-              Hikayeyi İzle
-            </Button>
-          </motion.div>
-        </div>
-      </div>
+      <HeroScrollVideo />
 
       {/* Features Section */}
       <section className="py-24 px-4 md:px-10 lg:px-40 bg-background overflow-hidden">
