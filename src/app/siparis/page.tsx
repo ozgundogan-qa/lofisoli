@@ -34,7 +34,7 @@ export default function SiparisPage() {
                         Özel Üretim Bilekliklerinize <span className="text-primary block mt-2">Hemen Sahip Olun</span>
                     </h1>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                        Lofisoli olarak her bir bilekliği size özel, el işçiliğiyle üretiyoruz. Siparişlerinizi ve özel tasarım taleplerinizi aşağıdaki resmi satış kanallarımız üzerinden güvenle oluşturabilirsiniz.
+                        Solivagus Outdoor olarak her bir bilekliği size özel, el işçiliğiyle üretiyoruz. Siparişlerinizi ve özel tasarım taleplerinizi aşağıdaki resmi satış kanallarımız üzerinden güvenle oluşturabilirsiniz.
                     </p>
                 </motion.div>
 
@@ -60,7 +60,7 @@ export default function SiparisPage() {
                             className="bg-[#F97316] hover:bg-[#F97316]/90 text-white rounded-full px-8 py-6 w-full text-lg shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-all group-hover:scale-105"
                             asChild
                         >
-                            <Link href="https://shopier.com/Lofisoli" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://shopier.com/solivagusoutdoor" target="_blank" rel="noopener noreferrer">
                                 Mağazaya Git <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>
@@ -86,7 +86,7 @@ export default function SiparisPage() {
                             className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 w-full text-lg font-bold shadow-[0_0_15px_rgba(19,236,91,0.3)] hover:shadow-[0_0_25px_rgba(19,236,91,0.5)] transition-all group-hover:scale-105"
                             asChild
                         >
-                            <Link href="https://instagram.com/lofisoli" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://instagram.com/solivagusoutdoor" target="_blank" rel="noopener noreferrer">
                                 Bize Ulaşın <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>

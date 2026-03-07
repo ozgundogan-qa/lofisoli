@@ -12,7 +12,7 @@ export function Footer() {
                     <div className="flex flex-col gap-6">
                         <Link href="/" className="flex items-center gap-2 text-white hover:text-primary transition-colors">
                             <Mountain className="h-6 w-6 text-primary" strokeWidth={2.5} />
-                            <h2 className="text-xl font-extrabold tracking-tight">Lofisoli</h2>
+                            <h2 className="text-xl font-extrabold tracking-tight">Solivagus Outdoor</h2>
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed">
                             Vahşi doğanın kalbinde, elde dokunan zarafet. Doğadan ilham alan el yapımı premium paracord bileklikler.
@@ -104,7 +104,7 @@ export function Footer() {
 
                 <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-muted-foreground text-xs">
-                        © {new Date().getFullYear()} Lofisoli. Tüm hakları saklıdır.
+                        © {new Date().getFullYear()} Solivagus Outdoor. Tüm hakları saklıdır.
                     </p>
                     <div className="flex gap-6">
                         <Link href="/gizlilik" className="text-muted-foreground hover:text-white text-xs transition-colors">

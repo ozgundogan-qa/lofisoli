@@ -27,7 +27,7 @@ export default function BrandStoryPage() {
                         <BlurText text="Şehir Hayatına." delay={0.5} className="text-primary mt-2" />
                     </h1>
                     <p className="text-xl text-white/80 max-w-2xl mx-auto font-medium">
-                        Lofisoli, doğanın zor şartlarında hayatta kalma arzusuyla doğan, estetik ve dayanıklılığı birleştiren premium paracord markasıdır.
+                        Solivagus Outdoor, doğanın zor şartlarında hayatta kalma arzusuyla doğan, estetik ve dayanıklılığı birleştiren premium paracord markasıdır.
                     </p>
                 </div>
             </section>
@@ -44,7 +44,7 @@ export default function BrandStoryPage() {
                             <span className="text-muted-foreground">hayatta kalma aracı.</span>
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            Her Lofisoli bilekliği, 250 kg çekme kuvvetine dayanıklı ABD askeri standartlarında 550 Tip III paracord ip kullanılarak elde üretilir. Acil bir durumda çözüldüğünde 3 metre uzunluğunda hayat kurtaran bir ipe dönüşür.
+                            Her Solivagus Outdoor bilekliği, 250 kg çekme kuvvetine dayanıklı ABD askeri standartlarında 550 Tip III paracord ip kullanılarak elde üretilir. Acil bir durumda çözüldüğünde 3 metre uzunluğunda hayat kurtaran bir ipe dönüşür.
                         </p>
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             Maceracılar, dağcılar ve günlük hayatında outdoor ruhunu hissetmek isteyenler için tasarlandı.
@@ -81,7 +81,7 @@ export default function BrandStoryPage() {
                             {
                                 icon: <Anchor className="h-8 w-8 text-primary" />,
                                 title: "Uzun Ömürlü Tasarım",
-                                desc: "Kullan at kültürüne karşıyız. Lofisoli bileklikleri ömür boyu kullanmanız için tasarlandı."
+                                desc: "Kullan at kültürüne karşıyız. Solivagus Outdoor bileklikleri ömür boyu kullanmanız için tasarlandı."
                             },
                             {
                                 icon: <MountainSnow className="h-8 w-8 text-primary" />,
