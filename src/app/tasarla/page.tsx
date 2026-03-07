@@ -5,6 +5,7 @@ import { Check, Info, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 // Dynamically import the 3D bracelet component to avoid loading heavy 3D libraries on initial page load
@@ -61,21 +62,28 @@ export default function BuilderPage() {
                 <div className="grid lg:grid-cols-2 gap-12 mt-12 items-start">
 
                     {/* Left Column: 3D Preview */}
-                    <div className="sticky top-24 rounded-2xl border border-border bg-[#0a150e] aspect-square lg:aspect-auto lg:h-[700px] overflow-hidden flex flex-col items-center justify-center relative">
-                        <div className="absolute inset-0 z-0 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
+                    <div className="sticky top-24 flex flex-col gap-4">
+                        <div className="rounded-2xl border border-border bg-[#0a150e] aspect-square lg:aspect-auto lg:h-[700px] overflow-hidden flex flex-col items-center justify-center relative">
+                            <div className="absolute inset-0 z-0 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
 
-                        {/* 3D Bracelet Component */}
-                        <div className="absolute inset-0 z-10">
-                            <DynamicBracelet3D
-                                baseColor={baseColor.hex}
-                                accentColor={accentColor.hex}
-                                claspType={slctClasp.id}
-                            />
+                            {/* 3D Bracelet Component */}
+                            <div className="absolute inset-0 z-10">
+                                <DynamicBracelet3D
+                                    baseColor={baseColor.hex}
+                                    accentColor={accentColor.hex}
+                                    claspType={slctClasp.id}
+                                />
+                            </div>
+
+                            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center text-sm text-muted-foreground bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 pointer-events-none z-20">
+                                <span className="flex items-center gap-2"><Info className="h-4 w-4" /> 3D Canlı Önizleme</span>
+                                <span>El Yapımı</span>
+                            </div>
                         </div>
 
-                        <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center text-sm text-muted-foreground bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 pointer-events-none z-20">
-                            <span className="flex items-center gap-2"><Info className="h-4 w-4" /> 3D Canlı Önizleme</span>
-                            <span>El Yapımı</span>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground px-2">
+                            <Info className="h-5 w-5 shrink-0 text-primary/70" />
+                            <p>3D Görsel renk uyumlarını görmeniz için yapılmıştır. Detaylı ve gerçek iplik renkleri ve klipsler için <Link href="/urunler" className="text-primary hover:underline">ürünler</Link> sayfamıza bakınız.</p>
                         </div>
                     </div>
 
