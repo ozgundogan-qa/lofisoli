@@ -13,7 +13,7 @@ export function HeroScrollVideo() {
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const frameCount = 300;
+    const frameCount = 181;
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -61,7 +61,7 @@ export function HeroScrollVideo() {
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
             const numStr = i.toString().padStart(3, '0');
-            img.src = `/hero-section-scroll/ezgif-frame-${numStr}.jpg`;
+            img.src = `/solivagus-hero-new/ezgif-frame-${numStr}.jpg`;
             loadedImages.push(img);
 
             if (i === 1) {
